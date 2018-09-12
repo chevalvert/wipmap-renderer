@@ -1,5 +1,5 @@
 # wipmap-renderer [<img src="https://github.com/chevalvert.png?size=100" align="right">](http://chevalvert.fr/)
-> wipmap map renderer
+> JS module to render `wipmap` maps on canvas
 
 ## Installation
 
@@ -13,8 +13,7 @@ yarn add chevalvert/wipmap-renderer
 import generate from 'wipmap-generate'
 import Renderer from 'wipmap-renderer'
 
-const [x, y] = [0, 0]
-const map = generate(x, y)
+const map = generate(0, 0)
 const renderer = new Renderer(document.getElementById('canvas'), {
   map,
   seed: map.seed,
@@ -41,7 +40,9 @@ renderer.update(landmarks, renderOpts)
   forceUpdate: false,
   drawBoundingBox: false,
   debugPerf: false,
-  colorMap: {
+  colors: {
+    background: 'white',
+    voronoi: 'red',
     'TAIGA': '#66CCFF',
     'JUNGLE': '#FF8000',
     'SWAMP': '#3C421E',
